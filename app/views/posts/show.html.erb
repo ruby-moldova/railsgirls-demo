@@ -1,0 +1,6 @@
+<h3><%= @post.title %>
+  <% if current_user == @post.user %>
+    <i><%= link_to 'Delete', @post, :method => :delete %></i>
+  <% end %>
+</h3>
+<p><%= @post.body %></p>
