@@ -10,6 +10,21 @@
           <% end %>
         </h3>
         <p><%= @post.body %></p>
+        <% rating = @post.rating_by(current_user) %>
+        <%= form_for rating, :url => rate_post_path do |f| %>
+          <span data-toggle="buttons">
+            <% 5.times do |i| %>
+              <% checked = i+1 == rating.value %>
+              <%= f.label :rating, :class => "btn btn-default#{checked ? ' active' : ''}" do %>
+                <%= i+1 %>
+                <%= radio_button_tag 'rating[value]', i+1, checked %>
+              <% end %>
+            <% end %>
+
+          </span>
+          <%= f.submit 'Vote!', :class => "btn btn-default btn-small" %>
+
+        <% end %>
       </div>
 
       <div class="panel-footer">
