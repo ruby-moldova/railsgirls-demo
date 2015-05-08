@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :users, :only => [] do
     resources :posts, :only => [:index, :new, :create], :module => :users
   end
-  resources :posts, :only => [:index, :show, :destroy]
+
+  resources :posts, :only => [:index, :show, :destroy] do
+    resources :comments, :only => :create
+  end
+
+  resources :comments, :only => :destroy
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -2,12 +2,31 @@
 <div class="row">
   <div class="col-xs-12">
 
-<h3><%= @post.title %>
-  <% if current_user == @post.user %>
-    <i><%= link_to 'Delete', @post, :method => :delete %></i>
-  <% end %>
-</h3>
-<p><%= @post.body %></p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3><%= @post.title %>
+          <% if current_user == @post.user %>
+            <i><%= link_to 'Delete', @post, :method => :delete %></i>
+          <% end %>
+        </h3>
+        <p><%= @post.body %></p>
+      </div>
+
+      <div class="panel-footer">
+        <h4>Comments:</h4>
+        <% @post.comments.each do |comment| %>
+          <p><%= comment.text %></p>
+        <% end %>
+        <%= form_for [@post, Comment.new] do |f| %>
+          <div class="form-group">
+            <%= f.label :new_comment %>
+            <%= f.text_area :text, :class => "form-control" %>
+          </div>
+          <%= f.submit 'Leave Comment', :class => "btn btn-primary" %>
+        <% end %>
+
+      </div>
+    </div>
 
   </div>
 </div>
