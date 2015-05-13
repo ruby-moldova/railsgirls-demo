@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dixxrvork
+  api_key: '159516747192927'
+  api_secret: 0RyBKm8vTWy5nNZsNJuA8C-1hSE
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dixxrvork
+  api_key: '159516747192927'
+  api_secret: 0RyBKm8vTWy5nNZsNJuA8C-1hSE
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dixxrvork
+  api_key: '159516747192927'
+  api_secret: 0RyBKm8vTWy5nNZsNJuA8C-1hSE
+  enhance_image_tag: true
+  static_image_support: false
