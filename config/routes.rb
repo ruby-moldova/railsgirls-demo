@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  mount Attachinary::Engine => '/attachinary'
   devise_for :users
-  root to: "posts#index"
+  root to: 'posts#index'
 
   resources :users, :only => [] do
     resources :posts, :only => [:index, :new, :create], :module => :users
