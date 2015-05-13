@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, :only => [:destroy]
+  before_action :authenticate_user!, :only => [:rate, :destroy]
 
   def index
     @posts = Post.all
@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   end
 
   def rate
-    pp params
     post = Post.find(params[:id])
     rating = post.rating_by(current_user)
     rating.value = params[:rating][:value]
