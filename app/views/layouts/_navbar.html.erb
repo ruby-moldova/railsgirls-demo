@@ -8,24 +8,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">RailsGirls</a>
+      <%= link_to "Azi tu Mâine eu", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'All Posts', posts_path %></li>
+        <li><%= link_to 'Toate anunțurile', posts_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to 'My Posts', user_posts_path(current_user) %></li>
-          <li><%= link_to 'New Post', new_user_post_path(current_user) %></li>
+          <li><%= link_to 'Anunțurile mele', user_posts_path(current_user) %></li>
+          <li><%= link_to 'Anunț nou', new_user_post_path(current_user) %></li>
         <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'Ieșire', destroy_user_session_path, :method => :delete %></li>
         <% else %>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li><%= link_to 'Intrare', new_user_session_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

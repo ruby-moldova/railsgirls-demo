@@ -6,18 +6,18 @@
       <div class="panel-body">
         <%= form_for [current_user, @post] do |f| %>
           <div class="form-group">
-            <%= f.label :title %>
+            <%= f.label :title, "Titlu" %>
             <%= f.text_field :title, :class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :body %>
+            <%= f.label :body , "Conținut"%>
             <%= f.text_area :body, :class => "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :image %>
+            <%= f.label :image, "Imagine" %>
             <%= f.attachinary_file_field :image, :class => "form-control" %>
           </div>
-          <%= f.submit :class => "btn btn-primary" %>
+          <%= f.submit "Creează anunț", :class => "btn btn-primary" %>
         <% end %>
       </div>
     </div>
