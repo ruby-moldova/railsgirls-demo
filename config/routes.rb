@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   resources :posts, :only => [:index, :show, :destroy] do
     resources :comments, :only => :create
-    patch '/rate', :to => 'posts#rate', :on => :member
+    member do
+      patch :vote_up
+      patch :vote_down
+    end
   end
 
   resources :comments, :only => :destroy

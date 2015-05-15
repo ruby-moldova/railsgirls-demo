@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>
+      <%= link_to post.title, post_path(post) %>
+    </h4>
+  </div>
+  <div class="panel-body">
+    <%= cl_image_tag post.image.try(:path), :crop => :fill, :class => "img-thumbnail img-responsive" %>
+    <p>
+      <%= post.body %>
+    </p>
+    <h6>Scris de <%= post.user.email %></h6>
+  </div>
+</div>

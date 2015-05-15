@@ -9,11 +9,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def rate
+  def vote_up
     post = Post.find(params[:id])
-    rating = post.rating_by(current_user)
-    rating.value = params[:rating][:value]
-    rating.save
+    post.vote_up(current_user)
+    redirect_to post
+  end
+
+  def vote_down
+    post = Post.find(params[:id])
+    post.vote_down(current_user)
     redirect_to post
   end
 

@@ -1,20 +1,5 @@
 <div class="row">
   <div class="col-xs-12 col-lg-offset-2 col-lg-8">
-    <% @posts.each do |post| %>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>
-            <%= link_to post.title, post_path(post) %>
-          </h4>
-        </div>
-        <div class="panel-body">
-          <%= cl_image_tag post.image.path, :crop => :fill, :class => "img-thumbnail img-responsive" %>
-          <p>
-            <%= post.body %>
-          </p>
-          <h6>Scris de <%= post.user.email %></h6>
-        </div>
-      </div>
-    <% end %>
+    <%= render :partial => 'posts/post', :collection => @posts %>
   </div>
 </div>
